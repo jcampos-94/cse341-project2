@@ -13,7 +13,10 @@
   "paths": {
     "/api/tasks/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Get all tasks",
         "responses": {
           "200": {
             "description": "OK"
@@ -21,19 +24,69 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Create a new task",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Task info",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Task title"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Task description"
+                },
+                "dueDate": {
+                  "type": "string",
+                  "example": "2025-05-23"
+                },
+                "priority": {
+                  "type": "string",
+                  "example": "high"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "pending"
+                },
+                "categoryId": {
+                  "type": "string",
+                  "example": "682fa1f489d7ec710de63759"
+                }
+              },
+              "required": [
+                "title",
+                "categoryId"
+              ]
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Task created"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/api/tasks/{id}": {
       "put": {
+        "tags": [
+          "Tasks"
+        ],
         "description": "",
         "parameters": [
           {
@@ -41,21 +94,54 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "dueDate": {
+                  "example": "any"
+                },
+                "priority": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                },
+                "categoryId": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "tags": [
+          "Tasks"
+        ],
         "description": "",
         "parameters": [
           {
@@ -77,14 +163,23 @@
     },
     "/api/categories/": {
       "get": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -106,12 +201,18 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/api/categories/{id}": {
       "put": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -142,10 +243,16 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -159,8 +266,14 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

@@ -12,6 +12,6 @@ const doc = {
 };
 
 const outputFile = './swagger/swagger.json';
-const endpointsFiles = ['./server.js']; // Entry point
+const endpointsFiles = ['./server.js', './controllers/taskController.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
