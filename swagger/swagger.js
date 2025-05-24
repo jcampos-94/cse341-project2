@@ -5,10 +5,10 @@ const doc = {
     title: 'Task Manager API',
     description: 'API to manage tasks and categories'
   },
-  host: 'localhost:3000',
-  schemes: ['http']
-  //   host: 'render.com site',
-  //   schemes: ['https']
+  // host: 'localhost:3000',
+  // schemes: ['http']
+  host: 'render.com site',
+  schemes: ['https']
 };
 
 const outputFile = './swagger/swagger.json';
