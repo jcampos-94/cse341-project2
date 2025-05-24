@@ -5,10 +5,10 @@
     "description": "API to manage tasks and categories",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "render.com site",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api/tasks/": {
