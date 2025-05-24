@@ -7,7 +7,7 @@ const doc = {
   },
   // host: 'localhost:3000',
   // schemes: ['http']
-  host: 'render.com site',
+  host: 'https://project2-dcvj.onrender.com/',
   schemes: ['https']
 };
 
