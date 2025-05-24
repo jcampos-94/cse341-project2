@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
+const validationHandler = require('../utils/validationHandler');
 const {
   createCategoryValidation,
   updateCategoryValidation
 } = require('../validations/categoryValidation');
-const { validationResult } = require('express-validator');
 
 router.get(
   '/',
@@ -17,11 +17,7 @@ router.post(
   '/',
   // #swagger.tags = ['Categories']
   createCategoryValidation,
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
-    next();
-  },
+  validationHandler,
   categoryController.createCategory
 );
 
@@ -29,11 +25,7 @@ router.put(
   '/:id',
   // #swagger.tags = ['Categories']
   updateCategoryValidation,
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
-    next();
-  },
+  validationHandler,
   categoryController.updateCategory
 );
 

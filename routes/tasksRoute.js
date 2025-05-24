@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const taskController = require('../controllers/taskController');
+const validationHandler = require('../utils/validationHandler');
 const { createTaskValidation, updateTaskValidation } = require('../validations/taskValidation');
-const { validationResult } = require('express-validator');
 
 router.get(
   '/',
@@ -33,11 +33,7 @@ router.post(
   #swagger.responses[400] = { description: 'Invalid request' }
   */
   createTaskValidation,
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
-    next();
-  },
+  validationHandler,
   taskController.createTask
 );
 
@@ -45,11 +41,7 @@ router.put(
   '/:id',
   // #swagger.tags = ['Tasks']
   updateTaskValidation,
-  (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
-    next();
-  },
+  validationHandler,
   taskController.updateTask
 );
 

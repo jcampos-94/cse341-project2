@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { connectDB } = require('./config/db');
-const taskRoutes = require('./routes/tasks');
-const categoryRoutes = require('./routes/categories');
+const taskRoutes = require('./routes/tasksRoute');
+const categoryRoutes = require('./routes/categoriesRoute');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger/swagger.json');
