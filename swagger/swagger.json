@@ -5,7 +5,7 @@
     "description": "API to manage tasks and categories",
     "version": "1.0.0"
   },
-  "host": "project2-dcvj.onrender.com/",
+  "host": "project2-dcvj.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
