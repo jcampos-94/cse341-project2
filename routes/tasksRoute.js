@@ -3,6 +3,7 @@ const router = express.Router();
 const taskController = require('../controllers/taskController');
 const validationHandler = require('../utils/validationHandler');
 const { createTaskValidation, updateTaskValidation } = require('../validations/taskValidation');
+const { isAuthenticated } = require('../utils/authenticate');
 
 router.get(
   '/',
@@ -32,6 +33,7 @@ router.post(
   #swagger.responses[201] = { description: 'Task created' }
   #swagger.responses[400] = { description: 'Invalid request' }
   */
+  isAuthenticated,
   createTaskValidation,
   validationHandler,
   taskController.createTask
@@ -40,6 +42,7 @@ router.post(
 router.put(
   '/:id',
   // #swagger.tags = ['Tasks']
+  isAuthenticated,
   updateTaskValidation,
   validationHandler,
   taskController.updateTask
@@ -48,6 +51,7 @@ router.put(
 router.delete(
   '/:id',
   // #swagger.tags = ['Tasks']
+  isAuthenticated,
   taskController.deleteTask
 );
 

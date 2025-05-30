@@ -6,6 +6,7 @@ const {
   createCategoryValidation,
   updateCategoryValidation
 } = require('../validations/categoryValidation');
+const { isAuthenticated } = require('../utils/authenticate');
 
 router.get(
   '/',
@@ -16,6 +17,7 @@ router.get(
 router.post(
   '/',
   // #swagger.tags = ['Categories']
+  isAuthenticated,
   createCategoryValidation,
   validationHandler,
   categoryController.createCategory
@@ -24,6 +26,7 @@ router.post(
 router.put(
   '/:id',
   // #swagger.tags = ['Categories']
+  isAuthenticated,
   updateCategoryValidation,
   validationHandler,
   categoryController.updateCategory
@@ -32,6 +35,7 @@ router.put(
 router.delete(
   '/:id',
   // #swagger.tags = ['Categories']
+  isAuthenticated,
   categoryController.deleteCategory
 );
 

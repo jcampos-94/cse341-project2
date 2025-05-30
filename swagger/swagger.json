@@ -7,15 +7,21 @@
   },
   "host": "project2-dcvj.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/tasks/": {
       "get": {
-        "tags": [
-          "Tasks"
-        ],
+        "tags": ["Tasks"],
         "description": "Get all tasks",
         "responses": {
           "200": {
@@ -24,9 +30,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Tasks"
-        ],
+        "tags": ["Tasks"],
         "description": "Create a new task",
         "parameters": [
           {
@@ -62,10 +66,7 @@
                   "example": "682fa1f489d7ec710de63759"
                 }
               },
-              "required": [
-                "title",
-                "categoryId"
-              ]
+              "required": ["title", "categoryId"]
             }
           }
         ],
@@ -76,6 +77,9 @@
           "400": {
             "description": "Invalid request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -84,9 +88,7 @@
     },
     "/api/tasks/{id}": {
       "put": {
-        "tags": [
-          "Tasks"
-        ],
+        "tags": ["Tasks"],
         "description": "",
         "parameters": [
           {
@@ -130,6 +132,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -139,9 +144,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Tasks"
-        ],
+        "tags": ["Tasks"],
         "description": "",
         "parameters": [
           {
@@ -155,6 +158,9 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           }
@@ -163,9 +169,7 @@
     },
     "/api/categories/": {
       "get": {
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "description": "",
         "responses": {
           "200": {
@@ -177,9 +181,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "description": "",
         "parameters": [
           {
@@ -202,6 +204,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -210,9 +215,7 @@
     },
     "/api/categories/{id}": {
       "put": {
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "description": "",
         "parameters": [
           {
@@ -241,6 +244,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -250,9 +256,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Categories"
-        ],
+        "tags": ["Categories"],
         "description": "",
         "parameters": [
           {
@@ -268,6 +272,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
